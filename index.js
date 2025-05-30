@@ -2,10 +2,6 @@ let deckId;
 
 const drawCardsBtn = document.getElementById("draw-cards-btn");
 
-drawCardsBtn.disabled = true;
-drawCardsBtn.style.cursor = "not-allowed";
-drawCardsBtn.style.opacity = "0.5";
-
 function drawCards() {
     fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())
@@ -27,11 +23,9 @@ function handleClick() {
         .then(data => {
             deckId = data.deck_id;
 
-            if (deckId !== undefined) {
-                drawCardsBtn.disabled = false;
-                drawCardsBtn.style.cursor = "pointer";
-                drawCardsBtn.style.opacity = "1";
-            }
+            drawCardsBtn.disabled = false;
+            drawCardsBtn.style.cursor = "pointer";
+            drawCardsBtn.style.opacity = "1";
         });
 }
 
