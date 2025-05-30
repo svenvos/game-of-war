@@ -29,6 +29,11 @@ body {
     background-color: #05EB80;
 }
 
+#draw-cards-btn {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 .cards-container {
     display: flex;
     gap: 1em;
