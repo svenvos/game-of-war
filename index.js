@@ -7,13 +7,13 @@ function drawCards() {
         .then(res => res.json())
         .then(data => {
             const cards = data.cards;
-            let cardsHtml = "";
+            let cardsContainerHtml = "";
             cards.forEach(card => {
-                cardsHtml += `
+                cardsContainerHtml += `
                     <img src="${card.image}" alt="${card.code}">
                 `;
             });
-            document.getElementById("cards-container").innerHTML = cardsHtml;
+            document.getElementById("cards-container").innerHTML = cardsContainerHtml;
         });
 }
 
