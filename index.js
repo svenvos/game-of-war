@@ -10,7 +10,7 @@ function drawCards() {
             let cardsContainerHtml = "";
             cards.forEach(card => {
                 cardsContainerHtml += `
-                    <img src="${card.image}" alt="${card.code}">
+                    <img src="${card.image}" alt="Card with code: ${card.code}">
                 `;
             });
             document.getElementById("cards-container").innerHTML = cardsContainerHtml;
