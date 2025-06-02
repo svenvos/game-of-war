@@ -23,6 +23,8 @@ function getNewDeck() {
         .then(data => {
             deckId = data.deck_id;
             remainingCards.textContent = `${data.remaining}`;
+            computerScore = 0;
+            myScore = 0;
 
             drawCardsBtn.disabled = false;
             drawCardsBtn.style.cursor = "pointer";
