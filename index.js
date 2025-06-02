@@ -4,7 +4,7 @@ let myScore = 0;
 
 const newDeckBtn = document.getElementById("new-deck");
 const drawCardsBtn = document.getElementById("draw-cards-btn");
-const displayWinner = document.getElementById("display-winner");
+const header = document.getElementById("header");
 const remainingCards = document.getElementById("remaining-cards");
 const computerScoreEl = document.getElementById("computer-score");
 const myScoreEl = document.getElementById("my-score");
@@ -23,11 +23,14 @@ function getNewDeck() {
         .then(data => {
             deckId = data.deck_id;
             remainingCards.textContent = `${data.remaining}`;
+
             computerScore = 0;
             myScore = 0;
             computerScoreEl.textContent = computerScore;
             myScoreEl.textContent = myScore;
 
+            header.textContent = "Game of War";
+            renderCardSlots(data);
             drawCardsBtn.disabled = false;
             drawCardsBtn.style.cursor = "pointer";
             drawCardsBtn.style.opacity = "1";
@@ -39,7 +42,7 @@ function drawCards() {
         .then(res => res.json())
         .then(data => {
             renderCardSlots(data);
-            displayWinner.textContent = determineWinningCard(data.cards[0].value, data.cards[1].value);
+            header.textContent = determineWinningCard(data.cards[0].value, data.cards[1].value);
             remainingCards.textContent = `${data.remaining}`;
 
             if (data.remaining === 0) {
@@ -48,11 +51,11 @@ function drawCards() {
                 drawCardsBtn.style.opacity = "0.5";
 
                 if (computerScore > myScore) {
-                    displayWinner.textContent = "The computer won the game!";
+                    header.textContent = "The computer won the game!";
                 } else if (computerScore < myScore) {
-                    displayWinner.textContent = "You won the game!";
+                    header.textContent = "You won the game!";
                 } else {
-                    displayWinner.textContent = "There is no winner. It's a tie!"
+                    header.textContent = "There is no winner. It's a tie!"
                 }
             }
         });
