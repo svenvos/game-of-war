@@ -3,6 +3,7 @@ let deckId;
 const newDeckBtn = document.getElementById("new-deck");
 const drawCardsBtn = document.getElementById("draw-cards-btn");
 const displayWinner = document.getElementById("display-winner");
+const remainingCards = document.getElementById("remaining-cards");
 
 function renderCardSlots(data) {
     const cardSlots = document.getElementById("cards-container").children;
@@ -17,6 +18,7 @@ function getNewDeck() {
         .then(res => res.json())
         .then(data => {
             deckId = data.deck_id;
+            remainingCards.textContent = `${data.remaining}`;
 
             drawCardsBtn.disabled = false;
             drawCardsBtn.style.cursor = "pointer";
@@ -30,6 +32,7 @@ function drawCards() {
         .then(data => {
             renderCardSlots(data);
             displayWinner.textContent = determineWinningCard(data.cards[0].value, data.cards[1].value);
+            remainingCards.textContent = `${data.remaining}`;
         });
 }
 
