@@ -62,6 +62,6 @@ function determineWinningCard(card1, card2) {
     } else if (card1Value < card2Value) {
         return `You win!`;
     } else {
-        return `War`;
+        return `War!`;
     }
 }
