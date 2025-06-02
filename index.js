@@ -18,13 +18,11 @@ function drawCards() {
     fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => {
-            let cardsContainerHtml = "";
-            data.cards.forEach(card => {
-                cardsContainerHtml += `
-                    <img src="${card.image}" alt="Card with code: ${card.code}">
-                `;
-            });
-            document.getElementById("cards-container").innerHTML = cardsContainerHtml;
+            const cardSlots = document.getElementById("cards-container").children;
+            for (let i = 0; i < cardSlots.length; i++) {
+                cardSlots[i].innerHTML = "";
+                cardSlots[i].innerHTML = `<img src="${data.cards[i].image}" alt="The code of the card is: ${data.cards[i].code}">`;
+            }
         });
 }
 
