@@ -29,8 +29,7 @@ function drawCards() {
         .then(res => res.json())
         .then(data => {
             renderCardSlots(data);
-            let winningCard = determineWinningCard(data.cards[0].value, data.cards[1].value);
-            console.log(winningCard);
+            displayWinner.textContent = determineWinningCard(data.cards[0].value, data.cards[1].value);
         });
 }
 
@@ -58,17 +57,11 @@ function determineWinningCard(card1, card2) {
     const card1Value = cardValues[card1];
     const card2Value = cardValues[card2];
 
-    console.log(`Card 1: ${card1Value}`);
-    console.log(`Card 2: ${card2Value}`);
-
     if (card1Value > card2Value) {
-        displayWinner.textContent = `Computer wins!`;
-        return card1Value;
+        return `Computer wins!`;
     } else if (card1Value < card2Value) {
-        displayWinner.textContent = `You win!`;
-        return card2Value;
+        return `You win!`;
     } else {
-        displayWinner.textContent = `War`;
-        return null;
+        return `War`;
     }
 }
