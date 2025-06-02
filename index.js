@@ -25,6 +25,8 @@ function getNewDeck() {
             remainingCards.textContent = `${data.remaining}`;
             computerScore = 0;
             myScore = 0;
+            computerScoreEl.textContent = computerScore;
+            myScoreEl.textContent = myScore;
 
             drawCardsBtn.disabled = false;
             drawCardsBtn.style.cursor = "pointer";
