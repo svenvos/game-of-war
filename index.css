@@ -1,13 +1,25 @@
+/* All */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
 }
 
 body {
     background-color: #121212;
+    height: 100vh;
 }
 
+/* Typography */
+h1 {
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Layout */
 .container {
     max-width: 500px;
     margin: 0 auto;
@@ -15,7 +27,6 @@ body {
 }
 
 .buttons-container {
-    margin: 100px 0;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -27,6 +38,14 @@ body {
     border-radius: 30px;
     cursor: pointer;
     background-color: #05EB80;
+    transition: .5s;
+    font-weight: 900;
+    color: #000000;
+}
+
+.buttons-container button:not([disabled]):hover {
+    background-color: #0b9b58;
+    color: #ffffff;
 }
 
 #draw-cards-btn {
@@ -34,11 +53,24 @@ body {
     opacity: 0.5;
 }
 
+.game-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
 .cards-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1em;
 }
 
 .cards-container img {
     width: 48%;
+}
+
+/* Utility */
+.info {
+    color: #9a9a9a;
 }
