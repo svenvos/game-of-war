@@ -8,9 +8,9 @@ const header = document.getElementById("header");
 const remainingCards = document.getElementById("remaining-cards");
 const computerScoreEl = document.getElementById("computer-score");
 const myScoreEl = document.getElementById("my-score");
+const cardSlots = document.getElementById("cards-container").children;
 
 function renderCardSlots(data) {
-    const cardSlots = document.getElementById("cards-container").children;
     for (let i = 0; i < cardSlots.length; i++) {
         cardSlots[i].innerHTML = "";
         cardSlots[i].innerHTML = `<img src="${data.cards[i].image}" alt="The code of the card is: ${data.cards[i].code}">`;
@@ -30,7 +30,10 @@ function getNewDeck() {
             myScoreEl.textContent = myScore;
 
             header.textContent = "Game of War";
-            renderCardSlots(data);
+            for (let i = 0; i < cardSlots.length; i++) {
+                cardSlots[i].innerHTML = "";
+            }
+
             drawCardsBtn.disabled = false;
             drawCardsBtn.style.cursor = "pointer";
             drawCardsBtn.style.opacity = "1";
