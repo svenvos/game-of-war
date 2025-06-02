@@ -1,9 +1,13 @@
 let deckId;
+let computerScore = 0;
+let myScore = 0;
 
 const newDeckBtn = document.getElementById("new-deck");
 const drawCardsBtn = document.getElementById("draw-cards-btn");
 const displayWinner = document.getElementById("display-winner");
 const remainingCards = document.getElementById("remaining-cards");
+const computerScoreEl = document.getElementById("computer-score");
+const myScoreEl = document.getElementById("my-score");
 
 function renderCardSlots(data) {
     const cardSlots = document.getElementById("cards-container").children;
@@ -67,8 +71,12 @@ function determineWinningCard(card1, card2) {
     const card2Value = cardValues[card2];
 
     if (card1Value > card2Value) {
+        computerScore++;
+        computerScoreEl.textContent = computerScore;
         return `Computer wins!`;
     } else if (card1Value < card2Value) {
+        myScore++;
+        myScoreEl.textContent = myScore;
         return `You win!`;
     } else {
         return `War!`;
