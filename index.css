@@ -66,16 +66,16 @@ body {
     gap: 1em;
 }
 
-.card-slot img {
+.card-slot {
+    border: 1px solid white;
+    border-radius: 5px;
     height: 120px;
     width: calc(120px * 5 / 7);
 }
 
-.card-slot {
-    border: 1px solid white;
-    border-radius: 5px;
-    height: 122px;
-    width: calc(122px * 5 / 7);
+.card-slot img {
+    width: 100%;
+    height: 100%;
 }
 
 /* Utility */
