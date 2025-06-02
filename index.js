@@ -33,6 +33,12 @@ function drawCards() {
             renderCardSlots(data);
             displayWinner.textContent = determineWinningCard(data.cards[0].value, data.cards[1].value);
             remainingCards.textContent = `${data.remaining}`;
+
+            if (data.remaining === 0) {
+                drawCardsBtn.disabled = true;
+                drawCardsBtn.style.cursor = "not-allowed";
+                drawCardsBtn.style.opacity = "0.5";
+            }
         });
 }
 
