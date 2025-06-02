@@ -2,21 +2,6 @@ let deckId;
 
 const drawCardsBtn = document.getElementById("draw-cards-btn");
 
-function drawCards() {
-    fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
-        .then(res => res.json())
-        .then(data => {
-            const cards = data.cards;
-            let cardsContainerHtml = "";
-            cards.forEach(card => {
-                cardsContainerHtml += `
-                    <img src="${card.image}" alt="Card with code: ${card.code}">
-                `;
-            });
-            document.getElementById("cards-container").innerHTML = cardsContainerHtml;
-        });
-}
-
 function handleClick() {
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
         .then(res => res.json())
@@ -26,6 +11,20 @@ function handleClick() {
             drawCardsBtn.disabled = false;
             drawCardsBtn.style.cursor = "pointer";
             drawCardsBtn.style.opacity = "1";
+        });
+}
+
+function drawCards() {
+    fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
+        .then(res => res.json())
+        .then(data => {
+            let cardsContainerHtml = "";
+            data.cards.forEach(card => {
+                cardsContainerHtml += `
+                    <img src="${card.image}" alt="Card with code: ${card.code}">
+                `;
+            });
+            document.getElementById("cards-container").innerHTML = cardsContainerHtml;
         });
 }
 
