@@ -46,6 +46,14 @@ function drawCards() {
                 drawCardsBtn.disabled = true;
                 drawCardsBtn.style.cursor = "not-allowed";
                 drawCardsBtn.style.opacity = "0.5";
+
+                if (computerScore > myScore) {
+                    displayWinner.textContent = "The computer won the game!";
+                } else if (computerScore < myScore) {
+                    displayWinner.textContent = "You won the game!";
+                } else {
+                    displayWinner.textContent = "There is no winner. It's a tie!"
+                }
             }
         });
 }
