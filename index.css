@@ -6,6 +6,7 @@
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-weight: 400;
     color: #ffffff;
+    text-align: center;
 }
 
 body {
@@ -14,16 +15,15 @@ body {
 }
 
 /* Typography */
-h1 {
-    text-align: center;
-    padding: 10px 0;
-}
 
 /* Layout */
 .container {
     max-width: 500px;
     margin: 0 auto;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .buttons-container {
@@ -66,8 +66,16 @@ h1 {
     gap: 1em;
 }
 
-.cards-container img {
-    width: 48%;
+.card-slot img {
+    height: 120px;
+    width: calc(120px * 5 / 7);
+}
+
+.card-slot {
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 122px;
+    width: calc(122px * 5 / 7);
 }
 
 /* Utility */
