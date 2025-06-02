@@ -2,6 +2,7 @@ let deckId;
 
 const newDeckBtn = document.getElementById("new-deck");
 const drawCardsBtn = document.getElementById("draw-cards-btn");
+const displayWinner = document.getElementById("display-winner");
 
 function renderCardSlots(data) {
     const cardSlots = document.getElementById("cards-container").children;
@@ -60,14 +61,14 @@ function determineWinningCard(card1, card2) {
     console.log(`Card 1: ${card1Value}`);
     console.log(`Card 2: ${card2Value}`);
 
-    if (card1Value < card2Value) {
-        console.log("Card 2 won");
-        return card2Value;
-    } else if (card1Value > card2) {
-        console.log("Card 1 won");
+    if (card1Value > card2Value) {
+        displayWinner.textContent = `Computer wins!`;
         return card1Value;
+    } else if (card1Value < card2Value) {
+        displayWinner.textContent = `You win!`;
+        return card2Value;
     } else {
-        console.log("It's a tie");
+        displayWinner.textContent = `War`;
         return null;
     }
 }
